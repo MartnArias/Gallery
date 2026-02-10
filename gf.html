@@ -1,0 +1,1071 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>💗</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg1: #ffb3d9;
+        --bg2: #ffd1ea;
+        --bg3: #fff0f7;
+        --hot: #ff2f8e;
+        --hot2: #ff5fb1;
+        --deep: #b3005a;
+        --card: #ffffffd9;
+        --shadow: 0 24px 60px rgba(179, 0, 90, 0.25);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family:
+          ui-rounded,
+          system-ui,
+          -apple-system,
+          "SF Pro Display",
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+        overflow: hidden;
+        color: #3a0030;
+        background-image: url("background/background.jpg");
+        background-size: cover;
+        background-position: center 60%;
+        background-attachment: fixed;
+      }
+
+      /* dreamy moving background blobs */
+      .blob {
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        filter: blur(20px);
+        opacity: 0.55;
+        border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #fff,
+          var(--hot2) 40%,
+          transparent 70%
+        );
+        animation: drift 11s ease-in-out infinite alternate;
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+      .blob.b2 {
+        width: 640px;
+        height: 640px;
+        left: auto;
+        right: -120px;
+        top: 40%;
+        opacity: 0.45;
+        background: radial-gradient(
+          circle at 40% 40%,
+          #fff,
+          #ff84c7 45%,
+          transparent 72%
+        );
+        animation-duration: 14s;
+      }
+      .blob.b1 {
+        left: -170px;
+        top: -140px;
+      }
+      @keyframes drift {
+        0% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+        100% {
+          transform: translate(60px, 40px) rotate(12deg) scale(1.06);
+        }
+      }
+
+      /* sparkly bokeh dots */
+      .bokeh {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.35;
+        background:
+          radial-gradient(6px 6px at 8% 20%, #fff, transparent 60%),
+          radial-gradient(7px 7px at 20% 75%, #fff, transparent 60%),
+          radial-gradient(5px 5px at 35% 30%, #fff, transparent 60%),
+          radial-gradient(8px 8px at 55% 18%, #fff, transparent 60%),
+          radial-gradient(6px 6px at 70% 65%, #fff, transparent 60%),
+          radial-gradient(7px 7px at 85% 35%, #fff, transparent 60%),
+          radial-gradient(5px 5px at 92% 78%, #fff, transparent 60%);
+        animation: twinkle 3.2s ease-in-out infinite;
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.25;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.01);
+        }
+      }
+
+      /* center layout */
+      .wrap {
+        position: relative;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(680px, 92vw);
+        border-radius: 28px;
+        padding: 34px 26px 26px;
+        background: linear-gradient(180deg, #ffffffee, #ffffffcc);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 47, 142, 0.18);
+        position: relative;
+        overflow: hidden;
+        transform: translateZ(0);
+        animation: cardIn 0.9s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+      }
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.98);
+          filter: blur(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+
+      .shine {
+        position: absolute;
+        inset: -120px;
+        background: conic-gradient(
+          from 180deg at 50% 50%,
+          transparent 0deg,
+          rgba(255, 255, 255, 0) 40deg,
+          rgba(255, 255, 255, 0.7) 70deg,
+          rgba(255, 255, 255, 0) 110deg,
+          transparent 360deg
+        );
+        opacity: 0.35;
+        animation: spin 7s linear infinite;
+        pointer-events: none;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .title {
+        text-align: center;
+        font-weight: 900;
+        letter-spacing: 0.2px;
+        font-size: clamp(30px, 4.4vw, 56px);
+        line-height: 1.02;
+        margin: 8px 0 10px;
+        background: linear-gradient(90deg, var(--deep), var(--hot), #ff7cc4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 10px 30px rgba(255, 47, 142, 0.15);
+      }
+
+      .subtitle {
+        text-align: center;
+        margin: 0 0 22px;
+        font-size: clamp(14px, 2vw, 18px);
+        opacity: 0.75;
+      }
+
+      /* animated heart doodle */
+      .heartBadge {
+        width: 92px;
+        height: 92px;
+        margin: 0 auto 6px;
+        display: grid;
+        place-items: center;
+        border-radius: 22px;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #fff,
+          #ffe0f0 55%,
+          #ffd0e8
+        );
+        border: 1px solid rgba(255, 47, 142, 0.18);
+        box-shadow: 0 12px 26px rgba(255, 47, 142, 0.18);
+        position: relative;
+        overflow: hidden;
+        animation: floaty 3s ease-in-out infinite;
+      }
+      .heartBadge::after {
+        content: "";
+        position: absolute;
+        inset: -60px;
+        background: radial-gradient(
+          circle at 40% 40%,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0) 60%
+        );
+        transform: rotate(20deg);
+        opacity: 0.55;
+        animation: sheen 2.6s ease-in-out infinite;
+      }
+      @keyframes sheen {
+        0%,
+        100% {
+          transform: translateX(-12px) rotate(20deg);
+          opacity: 0.45;
+        }
+        50% {
+          transform: translateX(12px) rotate(20deg);
+          opacity: 0.65;
+        }
+      }
+      @keyframes floaty {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .heartIcon {
+        width: 42px;
+        height: 42px;
+        filter: drop-shadow(0 10px 18px rgba(255, 47, 142, 0.25));
+        animation: pop 1.4s cubic-bezier(0.2, 0.9, 0.2, 1) infinite;
+      }
+      @keyframes pop {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+      }
+
+      .btnRow {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+
+      button {
+        appearance: none;
+        border: none;
+        cursor: pointer;
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 0.2px;
+        transition:
+          transform 0.12s ease,
+          box-shadow 0.12s ease,
+          filter 0.12s ease;
+        position: relative;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .yes {
+        min-width: 180px;
+        color: white;
+        background: linear-gradient(135deg, var(--hot), var(--hot2));
+        box-shadow: 0 14px 28px rgba(255, 47, 142, 0.35);
+      }
+      .yes::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 999px;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(255, 255, 255, 0.85),
+          rgba(255, 255, 255, 0) 55%
+        );
+        opacity: 0.55;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .no {
+        min-width: 140px;
+        color: var(--deep);
+        background: linear-gradient(180deg, #fff, #ffe6f2);
+        border: 1px solid rgba(255, 47, 142, 0.25);
+        box-shadow: 0 10px 22px rgba(179, 0, 90, 0.12);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.02);
+      }
+      button:active {
+        transform: translateY(1px) scale(0.99);
+      }
+
+      /* playful "No" evasive behavior */
+      .no.evasive {
+        position: relative;
+      }
+
+      .hint {
+        text-align: center;
+        margin-top: 16px;
+        font-size: 14px;
+        opacity: 0.65;
+      }
+
+      /* celebration overlay */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        background:
+          radial-gradient(
+            900px 650px at 50% 40%,
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 255, 255, 0) 60%
+          ),
+          radial-gradient(
+            1200px 800px at 50% 60%,
+            rgba(255, 47, 142, 0.22),
+            transparent 55%
+          );
+        transition: opacity 0.35s ease;
+        z-index: 5;
+      }
+      .overlay.on {
+        opacity: 1;
+      }
+
+      .message {
+        margin-top: 18px;
+        text-align: center;
+        font-weight: 800;
+        font-size: clamp(18px, 2.6vw, 26px);
+        color: #fff;
+        opacity: 0;
+        transform: translateY(6px);
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
+      .message.on {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* canvases for particles */
+      canvas {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 6;
+      }
+
+      /* floating heart rain (CSS) */
+      .heartRain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 7;
+        overflow: hidden;
+        display: none;
+      }
+      .heartRain.on {
+        display: block;
+      }
+
+      .hr {
+        position: absolute;
+        top: -40px;
+        font-size: 22px;
+        opacity: 0.9;
+        filter: drop-shadow(0 10px 12px rgba(255, 47, 142, 0.25));
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(calc(100vh + 80px)) rotate(220deg);
+          opacity: 0.05;
+        }
+      }
+
+      /* small footer */
+      .tiny {
+        margin-top: 18px;
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.45;
+      }
+
+      /* carousel screensaver */
+      .carousel-container {
+        position: fixed;
+        inset: 0;
+        background: #000;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 0;
+        z-index: 10;
+        overflow: hidden;
+      }
+      .carousel-container.active {
+        display: flex;
+      }
+
+      .carousel-row {
+        flex: 1;
+        display: flex;
+        gap: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel-item {
+        flex-shrink: 0;
+        width: calc(100vh / 3);
+        height: calc(100vh / 3);
+        aspect-ratio: 1;
+        border-radius: 0;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform-style: preserve-3d;
+      }
+
+      .carousel-item.flip {
+        animation: flipCard 0.6s ease-in-out;
+      }
+
+      @keyframes flipCard {
+        0% {
+          transform: rotateY(0deg);
+        }
+        50% {
+          transform: rotateY(90deg);
+        }
+        100% {
+          transform: rotateY(0deg);
+        }
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 0;
+        animation: scroll linear infinite;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .carousel-track.row1 {
+        animation-duration: 150s;
+      }
+      .carousel-track.row2 {
+        animation-duration: 170s;
+        animation-direction: reverse;
+      }
+      .carousel-track.row3 {
+        animation-duration: 190s;
+      }
+
+      /* Message overlay in middle row */
+      .carousel-message {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        font-size: 36px;
+        font-weight: 700;
+        font-family: "Quicksand", sans-serif;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+        z-index: 1;
+        line-height: 1.3;
+        min-height: 200px;
+      }
+
+      .carousel-message.glowing {
+        animation: messageGlow 2s ease-in-out infinite;
+        color: #fff;
+        text-shadow:
+          0 0 20px rgba(255, 47, 142, 0.8),
+          0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      @keyframes messageGlow {
+        0%,
+        100% {
+          text-shadow:
+            0 0 10px rgba(255, 47, 142, 0.6),
+            0 4px 12px rgba(0, 0, 0, 0.5);
+          opacity: 0.9;
+        }
+        50% {
+          text-shadow:
+            0 0 30px rgba(255, 47, 142, 1),
+            0 4px 12px rgba(0, 0, 0, 0.5);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="bokeh"></div>
+
+    <div class="wrap">
+      <div class="card" id="card">
+        <div class="shine"></div>
+
+        <div class="heartBadge" aria-hidden="true">
+          <svg class="heartIcon" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              fill="url(#g)"
+              stroke="url(#g)"
+              stroke-width="0.5"
+            />
+            <defs>
+              <linearGradient id="g" x1="4" y1="4" x2="20" y2="20">
+                <stop stop-color="#ff2f8e" />
+                <stop offset="1" stop-color="#ff7cc4" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <h1 class="title">She Said Yes!!</h1>
+        <div class="btnRow">
+          <button class="yes" id="yesBtn">Show Gallery</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <canvas id="fx"></canvas>
+    <canvas id="sparks"></canvas>
+    <div class="heartRain" id="heartRain"></div>
+
+    <!-- Carousel Screensaver -->
+    <div class="carousel-container" id="carouselContainer">
+      <div class="carousel-row">
+        <div class="carousel-track row1" id="track1"></div>
+      </div>
+      <div class="carousel-row" style="position: relative">
+        <div class="carousel-message" id="carouselMessage"></div>
+        <div class="carousel-track row2" id="track2"></div>
+      </div>
+      <div class="carousel-row">
+        <div class="carousel-track row3" id="track3"></div>
+      </div>
+    </div>
+
+    <script>
+      // ---------- helpers ----------
+      const rand = (a, b) => Math.random() * (b - a) + a;
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+      // ---------- evasive "No" ----------
+      const noBtn = document.getElementById("noBtn");
+      const card = document.getElementById("card");
+      const hint = document.getElementById("hint");
+      let noDodges = 0;
+
+      function dodge() {
+        if (document.body.classList.contains("celebrating")) return;
+
+        const btnR = noBtn.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+
+        // Calculate safe bounds to keep button visible within the card
+        const pad = 20;
+        // How much space is available on each side
+        const availableLeft = btnR.left - cardRect.left - pad;
+        const availableRight = cardRect.right - btnR.right - pad;
+        const availableTop = btnR.top - cardRect.top - pad;
+        const availableBottom = cardRect.bottom - btnR.bottom - pad;
+
+        // Random offset, but constrained to available space
+        const x = rand(-availableLeft, availableRight);
+        const y = rand(-availableTop, availableBottom);
+
+        noBtn.style.position = "relative";
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        noDodges++;
+        noBtn.classList.add("evasive");
+
+        if (noDodges >= 2)
+          hint.textContent = "Okayyyy you can try, but it's still shy 🥺";
+        if (noDodges >= 5)
+          hint.textContent = "At this point, the universe is voting YES 😭💗";
+      }
+
+      // ---------- celebration animation ----------
+      const yesBtn = document.getElementById("yesBtn");
+      const overlay = document.getElementById("overlay");
+      const msg = document.getElementById("msg");
+      const heartRain = document.getElementById("heartRain");
+
+      const fx = document.getElementById("fx");
+      const sparks = document.getElementById("sparks");
+      const ctx = fx.getContext("2d");
+      const sctx = sparks.getContext("2d");
+
+      function resize() {
+        fx.width = sparks.width = window.innerWidth * devicePixelRatio;
+        fx.height = sparks.height = window.innerHeight * devicePixelRatio;
+        ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        sctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      }
+      window.addEventListener("resize", resize);
+      resize();
+
+      // Particle systems: hearts + sparkles/fireworks
+      const hearts = [];
+      const fire = [];
+      let running = false;
+      let t0 = 0;
+
+      function spawnHeartsBurst(cx, cy) {
+        const count = 36;
+        for (let i = 0; i < count; i++) {
+          const a = rand(0, Math.PI * 2);
+          const sp = rand(2.2, 6.2);
+          hearts.push({
+            x: cx,
+            y: cy,
+            vx: Math.cos(a) * sp,
+            vy: Math.sin(a) * sp - rand(1.2, 3.0),
+            r: rand(10, 20),
+            rot: rand(-1, 1),
+            vr: rand(-0.12, 0.12),
+            life: rand(50, 90),
+            hue: rand(330, 360), // pinkish
+            alpha: 1,
+          });
+        }
+      }
+
+      function spawnFirework(cx, cy) {
+        const petals = 28;
+        for (let i = 0; i < petals; i++) {
+          const a = (i / petals) * Math.PI * 2 + rand(-0.06, 0.06);
+          const sp = rand(3.4, 8.4);
+          fire.push({
+            x: cx,
+            y: cy,
+            vx: Math.cos(a) * sp,
+            vy: Math.sin(a) * sp,
+            life: rand(40, 70),
+            size: rand(1.5, 3.2),
+            alpha: 1,
+          });
+        }
+      }
+
+      function drawHeart(x, y, size, rot, alpha) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rot);
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = "rgba(255,47,142,1)";
+        ctx.beginPath();
+        const s = size / 16;
+        ctx.scale(s, s);
+        ctx.moveTo(0, 3.5);
+        ctx.bezierCurveTo(0, -1.5, -6, -2.2, -6, 2.2);
+        ctx.bezierCurveTo(-6, 6.2, -2.5, 8.3, 0, 10.7);
+        ctx.bezierCurveTo(2.5, 8.3, 6, 6.2, 6, 2.2);
+        ctx.bezierCurveTo(6, -2.2, 0, -1.5, 0, 3.5);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function tick() {
+        if (!running) return;
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        sctx.clearRect(0, 0, innerWidth, innerHeight);
+
+        // hearts burst particles
+        for (let i = hearts.length - 1; i >= 0; i--) {
+          const p = hearts[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.08; // gravity
+          p.vx *= 0.985;
+          p.vy *= 0.985;
+          p.rot += p.vr;
+          p.life -= 1;
+          p.alpha = clamp(p.life / 80, 0, 1);
+
+          // glow
+          ctx.save();
+          ctx.globalAlpha = p.alpha * 0.35;
+          ctx.filter = "blur(6px)";
+          drawHeart(p.x, p.y, p.r * 1.25, p.rot, p.alpha * 0.4);
+          ctx.restore();
+
+          ctx.filter = "none";
+          drawHeart(p.x, p.y, p.r, p.rot, p.alpha);
+
+          if (p.life <= 0) hearts.splice(i, 1);
+        }
+
+        // fireworks sparkles
+        for (let i = fire.length - 1; i >= 0; i--) {
+          const p = fire[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vx *= 0.98;
+          p.vy *= 0.98;
+          p.life--;
+          p.alpha = clamp(p.life / 70, 0, 1);
+
+          // sparkle point + glow
+          sctx.save();
+          sctx.globalAlpha = p.alpha;
+          sctx.fillStyle = "rgba(255,255,255,1)";
+          sctx.beginPath();
+          sctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          sctx.fill();
+
+          sctx.globalAlpha = p.alpha * 0.55;
+          sctx.fillStyle = "rgba(255,47,142,1)";
+          sctx.beginPath();
+          sctx.arc(p.x, p.y, p.size * 2.3, 0, Math.PI * 2);
+          sctx.fill();
+          sctx.restore();
+
+          if (p.life <= 0) fire.splice(i, 1);
+        }
+
+        // stop once particles finish and enough time passed
+        const now = performance.now();
+        if (hearts.length === 0 && fire.length === 0 && now - t0 > 2200) {
+          // keep heart rain running a bit, but stop canvases
+          running = false;
+          fx.style.opacity = "0";
+          sparks.style.opacity = "0";
+        } else {
+          requestAnimationFrame(tick);
+        }
+      }
+
+      function startHeartRain() {
+        heartRain.innerHTML = "";
+        heartRain.classList.add("on");
+        const icons = ["💗", "💖", "💕", "💞", "💓", "💘", "✨"];
+        const n = 46;
+        for (let i = 0; i < n; i++) {
+          const el = document.createElement("div");
+          el.className = "hr";
+          el.textContent = icons[Math.floor(rand(0, icons.length))];
+          el.style.left = rand(0, 100) + "vw";
+          el.style.fontSize = rand(18, 34) + "px";
+          el.style.opacity = rand(0.5, 0.95);
+          el.style.animationDuration = rand(2.6, 5.2) + "s";
+          el.style.animationDelay = rand(0, 1.3) + "s";
+          heartRain.appendChild(el);
+        }
+        // fade away after a while
+        setTimeout(() => heartRain.classList.remove("on"), 5200);
+      }
+
+      function celebrate() {
+        if (document.body.classList.contains("celebrating")) return;
+        document.body.classList.add("celebrating");
+
+        // Hide everything except carousel
+        card.style.opacity = "0";
+        card.style.pointerEvents = "none";
+        overlay.style.display = "none";
+        heartRain.style.display = "none";
+        fx.style.display = "none";
+        sparks.style.display = "none";
+
+        // Show carousel
+        const carouselContainer = document.getElementById("carouselContainer");
+        carouselContainer.classList.add("active");
+
+        // Initialize carousel with images
+        initializeCarousel();
+
+        // lock NO button
+        noBtn.style.pointerEvents = "none";
+        noBtn.style.opacity = "0.5";
+      }
+
+      function initializeCarousel() {
+        const imageFolder = "carousal";
+        const imageNames = [
+          "78831309463__7F94C7D5-E04B-4FD9-A036-3AC8F39011A5.jpg",
+          "78892369127__F1BE78BA-F281-4426-B571-18130002F3FA.jpg",
+          "78898741767__692903D6-F179-4605-8EB3-814F519871FC.jpg",
+          "IMG_3228.jpg",
+          "IMG_4192.jpg",
+          "IMG_4195.jpg",
+          "IMG_4199.jpg",
+          "IMG_4202.jpg",
+          "IMG_4206.jpg",
+          "IMG_4259.jpg",
+          "IMG_4337.jpg",
+          "IMG_4638.jpg",
+          "IMG_4651.jpg",
+          "IMG_5061.jpg",
+          "IMG_6052.jpg",
+          "IMG_6292.jpg",
+          "IMG_6307.jpg",
+          "IMG_6312.jpg",
+          "IMG_6335.jpg",
+          "IMG_6371.jpg",
+          "IMG_6438.jpg",
+          "IMG_6443.jpg",
+          "IMG_6534.jpg",
+          "IMG_6647.jpg",
+          "IMG_6684.jpg",
+          "IMG_6712.jpg",
+          "IMG_6727.jpg",
+          "IMG_6739.jpg",
+          "IMG_6742.jpg",
+          "IMG_6744.jpg",
+          "IMG_6759.jpg",
+          "IMG_6787.jpg",
+          "IMG_6821.jpg",
+          "IMG_6827.jpg",
+          "IMG_6831.jpg",
+          "IMG_6836.jpg",
+          "IMG_6837.jpg",
+          "IMG_6838.jpg",
+          "IMG_6844.jpg",
+          "IMG_6845.jpg",
+          "IMG_6855.jpg",
+          "IMG_6867.jpg",
+          "IMG_6874.jpg",
+          "IMG_6945.jpg",
+          "IMG_7076 2.jpg",
+          "IMG_7078.jpg",
+          "IMG_7081.jpg",
+          "IMG_7859.jpg",
+        ];
+
+        // Distribute images into 3 exclusive groups (16 per row)
+        const rows = [
+          imageNames.slice(0, 16).sort(() => Math.random() - 0.5),
+          imageNames.slice(16, 32).sort(() => Math.random() - 0.5),
+          imageNames.slice(32, 48).sort(() => Math.random() - 0.5),
+        ];
+
+        // Populate each row
+        for (let i = 0; i < 3; i++) {
+          const track = document.getElementById(`track${i + 1}`);
+          track.innerHTML = "";
+
+          // Add images twice for seamless loop
+          rows[i].forEach((img) => {
+            const item = document.createElement("div");
+            item.className = "carousel-item";
+            const imgEl = document.createElement("img");
+            imgEl.src = `carousal/${img}`;
+            imgEl.alt = img;
+            item.appendChild(imgEl);
+            item.dataset.rowIndex = i; // Track which row this item belongs to
+
+            track.appendChild(item);
+          });
+
+          // Duplicate for seamless loop
+          rows[i].forEach((img) => {
+            const item = document.createElement("div");
+            item.className = "carousel-item";
+            const imgEl = document.createElement("img");
+            imgEl.src = `carousal/${img}`;
+            imgEl.alt = img;
+            item.appendChild(imgEl);
+            item.dataset.rowIndex = i;
+
+            track.appendChild(item);
+          });
+        }
+
+        // Randomly trigger flips on carousel items - only flip within the same row's image pool
+        setInterval(() => {
+          const allItems = carouselContainer.querySelectorAll(".carousel-item");
+          if (allItems.length > 0) {
+            const randomItem =
+              allItems[Math.floor(Math.random() * allItems.length)];
+            const img = randomItem.querySelector("img");
+            const rowIndex = parseInt(randomItem.dataset.rowIndex);
+
+            randomItem.classList.add("flip");
+
+            // Change image at the midpoint of the flip animation (300ms into 600ms)
+            // Only use images from the same row's pool to prevent duplicates
+            setTimeout(() => {
+              const rowImages = rows[rowIndex];
+              const randomImg =
+                rowImages[Math.floor(Math.random() * rowImages.length)];
+              img.src = `carousal/${randomImg}`;
+            }, 300);
+
+            // Remove flip class after animation
+            setTimeout(() => {
+              randomItem.classList.remove("flip");
+            }, 600);
+          }
+        }, 2000); // Trigger a flip every 2 seconds
+
+        // Typewriter effect for message
+        const messageEl = document.getElementById("carouselMessage");
+
+        // Calculate elapsed time since 2/06/26 3:00 PM
+        function getElapsedTime() {
+          const startDate = new Date(2026, 1, 6, 15, 0, 0); // Feb 6, 2026 at 3:00 PM
+          const now = new Date();
+          const diff = now - startDate;
+
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          return `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+        }
+
+        const originalMessage =
+          "Pookie said YES!\n2/06/2026\npeanut butter and jelly, amor :)";
+        const fullMessage = originalMessage;
+        const lines = fullMessage.split("\n");
+        let charIndex = 0;
+        let lineIndex = 0;
+
+        function typeMessage() {
+          if (lineIndex < lines.length) {
+            if (charIndex < lines[lineIndex].length) {
+              messageEl.innerHTML += lines[lineIndex][charIndex];
+              charIndex++;
+              setTimeout(typeMessage, 50);
+            } else {
+              // Move to next line
+              if (lineIndex < lines.length - 1) {
+                messageEl.innerHTML += "<br />";
+              }
+              charIndex = 0;
+              lineIndex++;
+              setTimeout(typeMessage, 100);
+            }
+          } else {
+            // Typing complete, add glow effect and start updating elapsed time
+            messageEl.classList.add("glowing");
+
+            // Create a separate container for elapsed time below the message
+            const timeContainer = document.createElement("div");
+            timeContainer.id = "elapsedTimeDisplay";
+            timeContainer.style.cssText = `
+              position: absolute;
+              width: 100%;
+              bottom: 100px;
+              text-align: center;
+              font-size: 24px;
+              font-weight: 700;
+              font-family: "Quicksand", sans-serif;
+              color: #fff;
+              text-shadow: 0 0 20px rgba(255, 47, 142, 0.8), 0 4px 12px rgba(0, 0, 0, 0.5);
+              animation: messageGlow 2s ease-in-out infinite;
+            `;
+            messageEl.parentElement.appendChild(timeContainer);
+
+            // Update elapsed time continuously
+            function updateElapsedTime() {
+              const timeDisplay = document.getElementById("elapsedTimeDisplay");
+              if (timeDisplay) {
+                timeDisplay.textContent = getElapsedTime();
+              }
+            }
+
+            updateElapsedTime(); // Initial update
+            setInterval(updateElapsedTime, 1000); // Update every second
+          }
+        }
+
+        typeMessage();
+      }
+
+      yesBtn.addEventListener("click", celebrate);
+
+      // keyboard support
+      window.addEventListener("keydown", (e) => {
+        if (e.key.toLowerCase() === "y") celebrate();
+        if (e.key.toLowerCase() === "n") dodge();
+        if (e.key.toLowerCase() === "f") {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {
+              // Fallback for browsers that don't support fullscreen
+              console.log("Fullscreen not available");
+            });
+          } else {
+            document.exitFullscreen();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
